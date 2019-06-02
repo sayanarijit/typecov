@@ -1,0 +1,19 @@
+language: python
+matrix:
+  include:
+    - python: "3.4"
+    - python: "3.5"
+    - python: "3.6"
+    - python: "3.7"
+      dist: xenial
+      sudo: true
+install:
+  - pip install --upgrade setuptools
+  - pip uninstall -y pytest
+script:
+  - python setup.py test
+  - rm -rf .mypy_cache || true
+  - mypy typecov.py test_typecov.py
+  - typecov 100 .mypy/typecov_report/linecount.txt
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
