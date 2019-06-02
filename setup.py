@@ -25,7 +25,7 @@ install_requires = []
 
 setup(
     name="typecov",
-    version="",
+    version=__version__,
     description=__description__,
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -45,7 +45,6 @@ setup(
         "Intended Audience :: Other Audience",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
