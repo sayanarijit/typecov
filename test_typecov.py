@@ -50,7 +50,7 @@ def test_coverage_not_achieved() -> None:
         f.write("49 50")
 
     p = Popen(
-        ["python", "-m", "typecov", "99", reportfilepath], stdout=PIPE, stderr=PIPE
+        ["python", "-m", "typecov", "98.001", reportfilepath], stdout=PIPE, stderr=PIPE
     )
     stdout, stderr = p.communicate()
 
@@ -59,7 +59,7 @@ def test_coverage_not_achieved() -> None:
     assert p.returncode == 1
     assert stdout.decode() == ""
     assert stderr.decode() == (
-        "fail: Required minimum type coverage of 99.0% not achieved."
+        "fail: Required minimum type coverage of 98.001% not achieved."
         " Total coverage: 98.0%\n"
     )
 
@@ -78,5 +78,5 @@ def test_success() -> None:
     os.remove(reportfilepath)
 
     assert p.returncode == 0
-    assert stdout.decode() == "Total coverage: 100.0%\n"
+    assert stdout.decode() == "Total type coverage: 100.0%\n"
     assert stderr.decode() == ""

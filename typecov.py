@@ -6,7 +6,7 @@ from argparse import ArgumentParser, FileType
 __author__ = "Arijit Basu"
 __email__ = "sayanarijit@gmail.com"
 __homepage__ = "https://github.com/sayanarijit/typecov"
-__version__ = "v0.1"
+__version__ = "v0.2"
 __description__ = "Run type coverage checks."
 __license__ = "MIT"
 
@@ -16,12 +16,12 @@ def main() -> int:
 
     parser = ArgumentParser("typecov", description=__description__)
 
-    parser.add_argument("coverage", type=float, help="Minimum coverage required.")
+    parser.add_argument("coverage", type=float, help="minimum coverage required.")
 
     parser.add_argument(
         "reportfile",
         type=FileType("r"),
-        help="Path to the type coverage report with line counts.",
+        help="path to the type coverage report with line counts.",
     )
 
     parser.add_argument(
@@ -57,7 +57,7 @@ def main() -> int:
         )
         return 1
 
-    print("Total coverage: {}%".format(coverage))
+    print("Total type coverage: {}%".format(coverage))
     return 0
 
 

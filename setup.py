@@ -15,11 +15,9 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
-setup_requires = ["pytest-runner"]
-
 tests_require = ["pytest", "pytest-cov", "mypy"]
 
-dev_requires = ["tox"]
+dev_requires = ["tox"] + tests_require
 
 install_requires = []
 
@@ -59,7 +57,6 @@ setup(
     keywords="type coverage",
     packages=find_packages(exclude=["contrib", "docs", "tests", "examples"]),
     install_requires=install_requires,
-    setup_requires=setup_requires,
     tests_require=tests_require,
     extras_require={"testing": tests_require, "dev": dev_requires},
     entry_points={"console_scripts": ["typecov = typecov:main"]},

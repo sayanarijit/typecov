@@ -29,5 +29,22 @@ optional arguments:
 Example
 -------
 ```
-typecov 99 .mypy/typecov_report/linecount.txt
+typecov 99 .typecov/report/linecount.txt
+```
+
+Contributing
+------------
+Install with
+```
+pip install -r dev-requirements.txt
+```
+
+Run tests
+```
+pytest
+```
+
+Or if you have [tox](https://github.com/tox-dev/tox) setup
+```
+tox
 ```

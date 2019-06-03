@@ -45,6 +45,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+.typecov/
 
 # Translations
 *.mo
@@ -101,7 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-.mypy/
 
 # VSCode
 .vscode/
