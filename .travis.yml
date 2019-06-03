@@ -7,14 +7,12 @@ matrix:
       dist: xenial
       sudo: true
 install:
-  - pip install --upgrade setuptools mypy
-  - pip uninstall -y pytest
+  - pip install -e '.[testing]'
 script:
-  - python setup.py test
   - rm -rf .mypy_cache || true
   - mypy typecov.py test_typecov.py
-  - python -m typecov 100 .mypy/typecov_report/linecount.txt
-  - pip install -e .
-  - typecov 100 .mypy/typecov_report/linecount.txt
+  - python -m typecov 100 .typecov/report/linecount.txt
+  - typecov 100 .typecov/report/linecount.txt
+  - pytest --cov=typecov
 after_success:
   - bash <(curl -s https://codecov.io/bash)
