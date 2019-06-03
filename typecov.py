@@ -6,7 +6,7 @@ from argparse import ArgumentParser, FileType
 __author__ = "Arijit Basu"
 __email__ = "sayanarijit@gmail.com"
 __homepage__ = "https://github.com/sayanarijit/typecov"
-__version__ = "v0.2"
+__version__ = "v0.2.1"
 __description__ = "Run type coverage checks."
 __license__ = "MIT"
 
