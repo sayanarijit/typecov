@@ -34,6 +34,10 @@ def main() -> int:
         print("error: {}: File is empty.".format(args.reportfile.name), file=sys.stderr)
         return 3
 
+    if args.coverage > 100:
+        print("error: minimum coverage can't be greater than 100.", file=sys.stderr)
+        return 3
+
     try:
         covered, total, *_ = coverage_summary.split()
     except ValueError:

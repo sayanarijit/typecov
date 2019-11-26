@@ -42,6 +42,23 @@ def test_invalid_format() -> None:
         reportfilepath
     )
 
+def test_minmum_coverage_canot_greater_than_100() -> None:
+    reportfilepath = "/tmp/reportfile_{}".format(randint(0, 9999))
+
+    with open(reportfilepath, "w") as f:
+        f.write("20/100")
+
+    p = Popen(
+        ["python", "-m", "typecov", "100.001", reportfilepath], stdout=PIPE, stderr=PIPE
+    )
+    stdout, stderr = p.communicate()
+
+    os.remove(reportfilepath)
+
+    assert p.returncode == 3
+    assert stdout.decode() == ""
+    assert stderr.decode() == "error: minimum coverage can't be greater than 100.\n"
+
 
 def test_coverage_not_achieved() -> None:
     reportfilepath = "/tmp/reportfile_{}".format(randint(0, 9999))
